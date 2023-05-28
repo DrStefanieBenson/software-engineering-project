@@ -2,6 +2,9 @@ import streamlit as st
 import pandas as pd
 import plotly_express as px
 
+$1s -a
+.git .gitignore .streamlit app.py README.md requirements.txt
+
 df_car_ads = pd.read_csv('vehicles_us.csv')
 
 st.header('The Number of Days Ad is Listed Per Price and Vehicle Condition')
@@ -24,3 +27,5 @@ fig = px.bar(ads_by_type,
              color_discrete_sequence=px.colors.qualitative.Light24,
             title='Number of Ads Per Vehicle Type')
 fig.show()
+
+

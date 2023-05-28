@@ -2,7 +2,6 @@ import streamlit as st
 import pandas as pd
 import plotly_express as px
 
-$1s -a
 .git .gitignore .streamlit app.py README.md requirements.txt
 
 df_car_ads = pd.read_csv('vehicles_us.csv')

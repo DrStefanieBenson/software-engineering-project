@@ -1,6 +1,6 @@
 import streamlit as st
 import pandas as pd
-import plotly.express as px
+import plotly-express as px
 
 df_car_ads = pd.read_csv('vehicles_us.csv')
 
@@ -14,10 +14,11 @@ fig = px.scatter(df_car_ads_mod, x="days_listed", y="price", color="condition",
 fig.show()
 
 
-st.header('Number of Ads Per Car Manufacturer')
 ads_by_make= pd.DataFrame(df_car_ads_mod.groupby('make')['model'].count())
 ads_by_make.reset_index(inplace=True)
 ads_by_make.columns = ['make', 'number of ads']
+
+st.header('Number of Ads Per Car Manufacturer')
 fig = px.pie(ads_by_make,
              values='number of ads',
              names='make',
@@ -28,10 +29,11 @@ fig = px.pie(ads_by_make,
 fig.show()
 
 
-st.header('Number of Ads Per Vehicle Type')
 ads_by_type= pd.DataFrame(df_car_ads_mod.groupby('type')['make'].count())
 ads_by_type.reset_index(inplace=True)
 ads_by_type.columns = ['type', 'number_of_ads']
+
+st.header('Number of Ads Per Vehicle Type')
 fig = px.bar(ads_by_type,
              x = 'type',
              y = 'number_of_ads',

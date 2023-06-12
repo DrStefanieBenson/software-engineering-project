@@ -32,6 +32,7 @@ df_car_ads_mod['date_posted'] = pd.to_datetime(df_car_ads_mod['date_posted'], fo
 df_car_ads_mod['make']= df_car_ads_mod.model.str.split().str.get(0)
 df_car_ads_mod['model_ind']= df_car_ads_mod.model.str.split().str.get(1)
 
+
 #Data Visualization
 
 #Average Price Per Number of Days Ad is Listed 
@@ -45,6 +46,11 @@ fig = px.scatter(avg_price_per_days_listed, x="days_listed", y="avg_price", colo
                  width = 1000, height = 1000, title='The Number of Days Ad is Listed Per Average Price of Vehicle')
 st.write(fig)
 
+fig = px.histogram(condition_days_listed, x="days_listed", title='The Number of Ads Per Days Listed & Per Condition',
+                  nbins=20, color="condition", color_discrete_sequence=px.colors.qualitative.Prism)
+st.write(fig)
+
+
 #Total Number of Ads Per Days Listed & Per Condition of Vehicle
 condition_days_listed= pd.DataFrame(df_car_ads_mod.groupby(['days_listed','condition']).count())
 condition_days_listed.reset_index(inplace=True)
@@ -57,6 +63,7 @@ fig = px.scatter(condition_days_listed, x="days_listed", y="price", color="condi
                      "price": "Number of Advertisements",
                      "condition": "Condition of the Vehicle"})
 st.write(fig)
+
 
 #Number of Ads Per Car Manufacturer
 ads_by_make= pd.DataFrame(df_car_ads_mod.groupby('make')['model'].count())
@@ -72,6 +79,7 @@ fig = px.pie(ads_by_make,
              color_discrete_sequence=px.colors.qualitative.Light24)
 
 st.write(fig)
+
 
 #Number of Ads Per Vehicle Type
 ads_by_type= pd.DataFrame(df_car_ads_mod.groupby('type')['make'].count())

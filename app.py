@@ -16,7 +16,8 @@ df_car_ads_mod['cylinders'] = df_car_ads_mod.groupby('model')['cylinders'].ffill
 #missingness- odometer
 median_odometer= df_car_ads_mod.groupby('model_year')['odometer'].median()
 df_car_ads_mod['odometer'] = df_car_ads_mod['odometer'].fillna(0)
-df_car_ads_mod['odometer'] = [x[1]['odometer'] if x[1]['odometer']!= 0\ else median_odometer[x[1]['model_year']] for x in df_car_ads_mod.iterrows()  ]
+df_car_ads_mod['odometer'] = [x[1]['odometer'] if x[1]['odometer']!= 0\
+                              else median_odometer[x[1]['model_year']] for x in df_car_ads_mod.iterrows()  ]
 
 #missingness- paint color
 df_car_ads_mod['paint_color'] = df_car_ads_mod['paint_color'].fillna('unknown')

@@ -46,14 +46,17 @@ fig = px.scatter(avg_price_per_days_listed, x="days_listed", y="avg_price", colo
                  width = 1000, height = 1000, title='The Number of Days Ad is Listed Per Average Price of Vehicle')
 st.write(fig)
 
-fig = px.histogram(condition_days_listed, x="days_listed", title='The Number of Ads Per Days Listed & Per Condition',
-                  nbins=20, color="condition", color_discrete_sequence=px.colors.qualitative.Prism)
-st.write(fig)
-
 
 #Total Number of Ads Per Days Listed & Per Condition of Vehicle
 condition_days_listed= pd.DataFrame(df_car_ads_mod.groupby(['days_listed','condition']).count())
 condition_days_listed.reset_index(inplace=True)
+
+st.header('The Number of Ads Per Days Listed & Per Condition')
+fig = px.histogram(condition_days_listed, x="days_listed", title='The Number of Ads Per Days Listed & Per Condition',
+                  nbins=20, color="condition", color_discrete_sequence=px.colors.qualitative.Prism)
+st.write(fig
+         
+st.header('The Number of Ads Per Days Listed & Per Condition')
 fig = px.scatter(condition_days_listed, x="days_listed", y="price", color="condition",
                  size='price', hover_data=['condition','days_listed'],
                 color_discrete_sequence=px.colors.qualitative.Light24,

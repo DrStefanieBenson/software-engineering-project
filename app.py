@@ -56,7 +56,6 @@ fig = px.histogram(condition_days_listed, x="days_listed", title='The Number of 
                   nbins=20, color="condition", color_discrete_sequence=px.colors.qualitative.Prism)
 st.write(fig
          
-st.header('The Number of Ads Per Days Listed & Per Condition')
 fig = px.scatter(condition_days_listed, x="days_listed", y="price", color="condition",
                  size='price', hover_data=['condition','days_listed'],
                 color_discrete_sequence=px.colors.qualitative.Light24,

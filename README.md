@@ -6,5 +6,5 @@ This repository also contains the data set, the documents necessary to create a 
 
 <b>Notes to Project Reviewer</b>
 - Link for Render: [https://customer-and-manufacturer-advertisement.onrender.com](https://customer-and-manufacturer-advertisement.onrender.com/)
-- Made all the minor adjustments to app.py and requirements.txt files as well as made changes to the scatterplot you wanted me to revise.  I hope you like it all, and thank you so much for your help!
+- Hopefully the histogram meets the requirements :o)
 - -Stefanie
